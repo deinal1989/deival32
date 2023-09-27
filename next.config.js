@@ -1,8 +1,7 @@
-const { withContentlayer } = require('next-contentlayer')
-
+const { withContentlayer } = require('next-contentlayer');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
-})
+});
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
@@ -14,13 +13,7 @@ const ContentSecurityPolicy = `
   connect-src *;
   font-src 'self';
   frame-src giscus.app
-`
-const nextConfig = {
-  output: 'export',
-  distDir: 'dist',
-}
-module.exports = nextConfig
-
+`;
 
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
@@ -58,13 +51,13 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
-]
+];
 
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
 module.exports = () => {
-  const plugins = [withContentlayer, withBundleAnalyzer]
+  const plugins = [withContentlayer, withBundleAnalyzer];
   return plugins.reduce((acc, next) => next(acc), {
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -83,15 +76,19 @@ module.exports = () => {
           source: '/(.*)',
           headers: securityHeaders,
         },
-      ]
-    },  
+      ];
+    },
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
-      })
+      });
 
-      return config
+      return config;
     },
-  })
-}
+    // Habilita la optimización de imágenes con Sharp
+    images: {
+      formats: ['image/avif', 'image/webp'],
+    },
+  });
+};
