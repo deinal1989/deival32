@@ -2,14 +2,14 @@ const projectsData = [
   {
     title: 'Desarrollo de software y Apps',
     description: `En DeiVal.online, estamos comprometidos en brindar soluciones tecnológicas de vanguardia para ayudarte a alcanzar tus objetivos comerciales.`,
-    imgSrc: '/static/images/servicios/1.jpg',
+    imgSrc: '/static/images/servicios/2.jpg',
     imgAlt: 'Desarrollo de software y Apps', // Agrega una descripción alt para la imagen
     href: '/blog/services/desarrollos',
   },
   {
     title: 'Consultoría en Planes de Compensación para Empresas de Mercadeo en Red',
     description: `Potencia tu empresa de mercadeo en red con un plan de compensación a medida. Nuestra consultoría te brinda la clave del éxito.`,
-    imgSrc: '/static/images/servicios/2.jpg',
+    imgSrc: '/static/images/twitter-card.png',
     imgAlt: 'Consultoría en Planes de Compensación para Empresas de Mercadeo en Red', // Agrega una descripción alt para la imagen
     href: '/blog/services/consultorias', 
   },
